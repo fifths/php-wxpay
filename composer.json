@@ -1,0 +1,19 @@
+{
+    "name": "fifths/php-wechatpay",
+    "description": "php wechatPay class",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "lee",
+            "email": "ligangmingx@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Wechat\\": "src/Wechat/"
+        }
+    }
+}
