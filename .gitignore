@@ -1,4 +1,5 @@
-example
 composer.lock
 .idea
 vendor
+example/config.bak.php
+example/cert.bak

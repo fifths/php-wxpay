@@ -1,6 +1,6 @@
 <?php
 
-namespace Wechat;
+namespace Wechat\WxPay\Kernel;
 
 
 /**
