@@ -23,4 +23,7 @@ $config = array(
 );
 
 $app = \Wechat\Factory::WxPay($config);
+$data['transaction_id'] = 'xxxxxxxxxxxxx';
+$result=$app->orderQuery($data);
+echo json_encode($result);
 ```
