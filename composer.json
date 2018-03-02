@@ -1,6 +1,6 @@
 {
-    "name": "fifths/php-wechatpay",
-    "description": "php wechatPay class",
+    "name": "fifths/php-wxpay",
+    "description": "php wxpay class",
     "license": "MIT",
     "authors": [
         {
