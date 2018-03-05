@@ -253,10 +253,12 @@ class Application extends ServiceContainer
     /**
      * 支付结果通用通知
      */
-    public function notify()
+    public function notify($xml = '')
     {
-        //获取通知的数据
-        $xml = file_get_contents('php://input');
+        if ($xml == '') {
+            //获取通知的数据
+            $xml = file_get_contents('php://input');
+        }
         //如果返回成功则验证签名
         try {
             $result = $this->Init($xml);
