@@ -24,8 +24,14 @@ class Application extends ServiceContainer
         $valus_array = $values;
         $valus_array['appid'] = $this->config['appid'];//公众账号ID
         $valus_array['mch_id'] = $this->config['mch_id'];//商户号
-        $valus_array['spbill_create_ip'] = isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : '127.0.0.1';//终端ip
-        $valus_array['nonce_str'] = $this->getNonceStr();
+
+        if (!isset($valus_array['spbill_create_ip'])) {
+            $valus_array['spbill_create_ip'] = isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : '127.0.0.1';//终端ip
+        }
+        if (!isset($valus_array['nonce_str'])) {
+            $valus_array['nonce_str'] = $this->getNonceStr();
+        }
+
         $this->values = $valus_array;
         $this->SetSign();
 
@@ -50,7 +56,9 @@ class Application extends ServiceContainer
         $valus_array = $values;
         $valus_array['appid'] = $this->config['appid'];//公众账号ID
         $valus_array['mch_id'] = $this->config['mch_id'];//商户号
-        $valus_array['nonce_str'] = $this->getNonceStr();
+        if (!isset($valus_array['nonce_str'])) {
+            $valus_array['nonce_str'] = $this->getNonceStr();
+        }
         $this->values = $valus_array;
         $this->SetSign();
         $xml = $this->ToXml();
@@ -73,7 +81,9 @@ class Application extends ServiceContainer
         $valus_array = $values;
         $valus_array['appid'] = $this->config['appid'];//公众账号ID
         $valus_array['mch_id'] = $this->config['mch_id'];//商户号
-        $valus_array['nonce_str'] = $this->getNonceStr();
+        if (!isset($valus_array['nonce_str'])) {
+            $valus_array['nonce_str'] = $this->getNonceStr();
+        }
         $this->values = $valus_array;
         $this->SetSign();
         $xml = $this->ToXml();
@@ -96,7 +106,9 @@ class Application extends ServiceContainer
         $valus_array = $values;
         $valus_array['appid'] = $this->config['appid'];//公众账号ID
         $valus_array['mch_id'] = $this->config['mch_id'];//商户号
-        $valus_array['nonce_str'] = $this->getNonceStr();
+        if (!isset($valus_array['nonce_str'])) {
+            $valus_array['nonce_str'] = $this->getNonceStr();
+        }
         $this->values = $valus_array;
         $this->SetSign();
         $xml = $this->ToXml();
@@ -119,7 +131,9 @@ class Application extends ServiceContainer
         $valus_array = $values;
         $valus_array['appid'] = $this->config['appid'];//公众账号ID
         $valus_array['mch_id'] = $this->config['mch_id'];//商户号
-        $valus_array['nonce_str'] = $this->getNonceStr();
+        if (!isset($valus_array['nonce_str'])) {
+            $valus_array['nonce_str'] = $this->getNonceStr();
+        }
         $this->values = $valus_array;
         $this->SetSign();
         $xml = $this->ToXml();
@@ -142,7 +156,9 @@ class Application extends ServiceContainer
         $valus_array = $values;
         $valus_array['appid'] = $this->config['appid'];//公众账号ID
         $valus_array['mch_id'] = $this->config['mch_id'];//商户号
-        $valus_array['nonce_str'] = $this->getNonceStr();
+        if (!isset($valus_array['nonce_str'])) {
+            $valus_array['nonce_str'] = $this->getNonceStr();
+        }
         $this->values = $valus_array;
         $this->SetSign();
         $xml = $this->ToXml();
@@ -169,7 +185,9 @@ class Application extends ServiceContainer
         $valus_array['spbill_create_ip'] = $_SERVER['REMOTE_ADDR'];//终端ip
         $valus_array['appid'] = $this->config['appid'];//公众账号ID
         $valus_array['mch_id'] = $this->config['mch_id'];//商户号
-        $valus_array['nonce_str'] = $this->getNonceStr();
+        if (!isset($valus_array['nonce_str'])) {
+            $valus_array['nonce_str'] = $this->getNonceStr();
+        }
         $this->values = $valus_array;
         $this->SetSign();
         $xml = $this->ToXml();
@@ -193,7 +211,9 @@ class Application extends ServiceContainer
         $valus_array = $values;
         $valus_array['appid'] = $this->config['appid'];//公众账号ID
         $valus_array['mch_id'] = $this->config['mch_id'];//商户号
-        $valus_array['nonce_str'] = $this->getNonceStr();
+        if (!isset($valus_array['nonce_str'])) {
+            $valus_array['nonce_str'] = $this->getNonceStr();
+        }
         $this->values = $valus_array;
         $this->SetSign();
         $xml = $this->ToXml();
@@ -217,8 +237,12 @@ class Application extends ServiceContainer
         $valus_array = $values;
         $valus_array['appid'] = $this->config['appid'];//公众账号ID
         $valus_array['mch_id'] = $this->config['mch_id'];//商户号
-        $valus_array['nonce_str'] = $this->getNonceStr();
-        $valus_array['user_ip'] = $_SERVER['REMOTE_ADDR'];
+        if (!isset($valus_array['nonce_str'])) {
+            $valus_array['nonce_str'] = $this->getNonceStr();
+        }
+        if (!isset($valus_array['user_ip'])) {
+            $valus_array['user_ip'] = isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : '127.0.0.1';
+        }
         $this->values = $valus_array;
         $this->SetSign();
         $xml = $this->ToXml();
@@ -241,7 +265,9 @@ class Application extends ServiceContainer
         $valus_array = $values;
         $valus_array['appid'] = $this->config['appid'];//公众账号ID
         $valus_array['mch_id'] = $this->config['mch_id'];//商户号
-        $valus_array['nonce_str'] = $this->getNonceStr();
+        if (!isset($valus_array['nonce_str'])) {
+            $valus_array['nonce_str'] = $this->getNonceStr();
+        }
         $this->values = $valus_array;
         $this->SetSign();
         $xml = $this->ToXml();
@@ -283,8 +309,12 @@ class Application extends ServiceContainer
         $valus_array = $values;
         $valus_array['appid'] = $this->config['appid'];//公众账号ID
         $valus_array['mch_id'] = $this->config['mch_id'];//商户号
-        $valus_array['nonce_str'] = $this->getNonceStr();//随机字符串
-        $valus_array['time_stamp'] = time();//时间戳
+        if (!isset($valus_array['nonce_str'])) {
+            $valus_array['nonce_str'] = $this->getNonceStr();
+        }
+        if (!isset($valus_array['time_stamp'])) {
+            $valus_array['time_stamp'] = time();//时间戳
+        }
         $this->values = $valus_array;
         $this->SetSign();
         return $this->values;
