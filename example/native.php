@@ -27,7 +27,7 @@ $data = [
 ];
 $result = $app->unifiedOrder($data);
 
-// var_dump($result);
+var_dump($result);
 $url2 = $result["code_url"];
 ?>
 <html>

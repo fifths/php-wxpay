@@ -131,13 +131,21 @@ class ServiceContainer
      */
     public function MakeSign()
     {
+        $this->values['sign_type'] = $this->config['sign_type'];
         //签名步骤一：按字典序排序参数
         ksort($this->values);
         $string = $this->ToUrlParams();
         //签名步骤二：在string后加入KEY
         $string = $string . "&key=" . $this->config['key'];
         //签名步骤三：MD5加密
-        $string = md5($string);
+        if ($this->config['sign_type'] == 'MD5') {
+            $string = md5($string);
+        } else if ($this->config['sign_type'] == 'HMAC-SHA256') {
+            // var_dump($string);
+            // die();
+            $string = hash_hmac('sha256', $string, $this->config['key']);
+        }
+
         //签名步骤四：所有字符转为大写
         $result = strtoupper($string);
         return $result;
@@ -145,13 +153,20 @@ class ServiceContainer
 
     public function MakeSign2($values)
     {
+        $this->values['sign_type'] = $this->config['sign_type'];
         //签名步骤一：按字典序排序参数
         ksort($values);
         $string = $this->ToUrlParams2($values);
         //签名步骤二：在string后加入KEY
         $string = $string . "&key=" . $this->config['key'];
         //签名步骤三：MD5加密
-        $string = md5($string);
+        if ($this->config['sign_type'] == 'MD5') {
+            $string = md5($string);
+        } else if ($this->config['sign_type'] == 'HMAC-SHA256') {
+            // var_dump($string);
+            // die();
+            $string = hash_hmac('sha256', $string, $this->config['key']);
+        }
         //签名步骤四：所有字符转为大写
         $result = strtoupper($string);
         return $result;
